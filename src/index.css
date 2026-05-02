@@ -1,0 +1,118 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #000;
+  --bg2: #080808;
+  --bg3: #0f0f0f;
+  --white: #fff;
+  --w60: rgba(255,255,255,.60);
+  --w40: rgba(255,255,255,.40);
+  --w25: rgba(255,255,255,.25);
+  --w10: rgba(255,255,255,.10);
+  --w05: rgba(255,255,255,.05);
+  --border: rgba(255,255,255,.08);
+  --glass: rgba(255,255,255,.04);
+  --glass-b: rgba(255,255,255,.10);
+  --display: 'Bebas Neue', sans-serif;
+  --body: 'DM Sans', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* scrollbar */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 2px; }
+
+/* selection */
+::selection { background: rgba(255,255,255,.15); }
+
+/* font helpers */
+.font-display { font-family: var(--display); }
+.font-mono    { font-family: var(--mono); }
+
+/* glass card */
+.gc {
+  background: var(--glass);
+  border: 1px solid var(--glass-b);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* section wrapper */
+.wrap { max-width: 1160px; margin: 0 auto; }
+
+/* eyebrow */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--w25);
+  margin-bottom: 14px;
+}
+
+/* section title */
+.sec-title {
+  font-family: var(--display);
+  font-size: clamp(44px, 6vw, 80px);
+  line-height: .95;
+  letter-spacing: .02em;
+  color: #fff;
+  margin-bottom: 28px;
+}
+
+/* buttons */
+.btn-p {
+  display: inline-block;
+  background: #fff;
+  color: #000;
+  padding: 13px 30px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: opacity .2s;
+  border: none;
+  cursor: pointer;
+}
+.btn-p:hover { opacity: .84; }
+
+.btn-o {
+  display: inline-block;
+  background: transparent;
+  color: #fff;
+  padding: 13px 30px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border: 1px solid var(--w25);
+  text-decoration: none;
+  transition: border-color .2s;
+  cursor: pointer;
+}
+.btn-o:hover { border-color: #fff; }
+
+/* noise overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: .022;
+  pointer-events: none;
+  z-index: 9990;
+}
