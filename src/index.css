@@ -116,3 +116,107 @@ body::before {
   pointer-events: none;
   z-index: 9990;
 }
+
+/* ═══════════════════════════════════════
+   GLOBAL MOBILE FIXES
+═══════════════════════════════════════ */
+@media (max-width: 860px) {
+
+  /* nav */
+  nav { padding: 0 20px !important; }
+
+  /* all sections */
+  section { padding: 72px 20px !important; }
+  .wrap   { padding: 0 !important; }
+
+  /* hero */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+  }
+  .hero-motion-wrap {
+    padding: 0 20px !important;
+  }
+  /* hero photo — show as banner below text, landscape crop */
+  .hero-photo-col {
+    margin: 0 -20px; /* bleed to edges */
+  }
+  .hero-photo-col img {
+    aspect-ratio: 3/2 !important;
+    max-height: 300px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+  }
+  /* badges inside hero photo — pull in from edges */
+  .hero-badge-tl {
+    left: 12px !important;
+    top: 12px !important;
+    right: auto !important;
+  }
+  .hero-badge-br {
+    right: 12px !important;
+    bottom: 12px !important;
+    left: auto !important;
+  }
+
+  /* two-col sections */
+  .two-col {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+
+  /* stats */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .stats-grid > *:nth-child(2) { border-right: none !important; }
+  .stats-grid > *:nth-child(3) {
+    border-right: 1px solid rgba(255,255,255,.08) !important;
+    border-top: 1px solid rgba(255,255,255,.08) !important;
+  }
+  .stats-grid > *:nth-child(4) {
+    border-top: 1px solid rgba(255,255,255,.08) !important;
+  }
+
+  /* projects */
+  .proj-grid { grid-template-columns: 1fr !important; }
+
+  /* achievements */
+  .ach-grid { grid-template-columns: 1fr !important; }
+
+  /* sae feature */
+  .sae-grid { grid-template-columns: 1fr !important; }
+  .sae-grid img {
+    min-height: 320px !important;
+    max-height: 420px !important;
+    object-position: top center !important;
+  }
+  .sae-content-col {
+    padding: 40px 20px !important;
+  }
+
+  /* footer */
+  footer {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 28px 20px !important;
+    gap: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0 !important;
+  }
+  .hero-photo-col img {
+    max-height: 240px !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .sec { padding: 72px 20px !important; }
+  .stats-strip-wrap { padding: 36px 20px !important; }
+  .stats-strip-wrap .wrap { max-width: 100% !important; }
+}

@@ -203,7 +203,7 @@ export default function Home() {
           pointerEvents:'none', zIndex:1,
         }} />
 
-        <motion.div className="wrap" style={{ y: heroY, opacity: heroOp, position:'relative', zIndex:2, width:'100%', padding:'0 48px' }}>
+        <motion.div className="wrap hero-motion-wrap" style={{ y: heroY, opacity: heroOp, position:'relative', zIndex:2, width:'100%', padding:'0 48px' }}>
           <div style={{ display:'grid', gridTemplateColumns:'1fr 460px', gap:80, alignItems:'center' }}
             className="hero-grid">
 
@@ -263,6 +263,7 @@ export default function Home() {
             {/* right — intro photo */}
             <motion.div initial={{ opacity:0, x:40 }} animate={{ opacity:1, x:0 }}
               transition={{ duration:.9, delay:.2, ease:[.22,1,.36,1] }}
+              className="hero-photo-col"
               style={{ position:'relative' }}>
               <div style={{
                 position:'absolute', inset:-1,
@@ -276,6 +277,7 @@ export default function Home() {
               {/* floating badge — college */}
               <motion.div initial={{ opacity:0, x:-20 }} animate={{ opacity:1, x:0 }}
                 transition={{ duration:.7, delay:.6 }}
+                className="hero-badge-tl"
                 style={{
                   position:'absolute', top:24, left:-20,
                   background:'var(--glass)', backdropFilter:'blur(14px)',
@@ -288,6 +290,7 @@ export default function Home() {
               {/* floating badge — experience */}
               <motion.div initial={{ opacity:0, x:20 }} animate={{ opacity:1, x:0 }}
                 transition={{ duration:.7, delay:.7 }}
+                className="hero-badge-br"
                 style={{
                   position:'absolute', bottom:28, right:-20,
                   background:'var(--glass)', backdropFilter:'blur(14px)',
@@ -318,12 +321,11 @@ export default function Home() {
         <style>{`
           @keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
           @keyframes sline{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
-          @media(max-width:900px){.hero-grid{grid-template-columns:1fr !important;gap:48px !important}.hero-photo-right{display:none}}
         `}</style>
       </section>
 
       {/* ═══════════════════ STATS ═══════════════════ */}
-      <div style={{ background:'var(--bg2)', borderTop:'1px solid var(--border)', borderBottom:'1px solid var(--border)', padding:'52px 48px' }}>
+      <div className='stats-strip-wrap' style={{ background:'var(--bg2)', borderTop:'1px solid var(--border)', borderBottom:'1px solid var(--border)', padding:'52px 48px' }}>
         <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', maxWidth:1160, margin:'0 auto' }}
           className="stats-grid">
           {[
@@ -343,11 +345,11 @@ export default function Home() {
             </Reveal>
           ))}
         </div>
-        <style>{`.stats-grid{@media(max-width:700px){grid-template-columns:repeat(2,1fr) !important}}`}</style>
+
       </div>
 
       {/* ═══════════════════ ABOUT ═══════════════════ */}
-      <section id="about" style={{ padding:'120px 48px', background:'var(--bg)' }}>
+      <section id="about" className='sec' style={{ padding:'120px 48px', background:'var(--bg)' }}>
         <div className="wrap">
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'start' }}
             className="two-col">
@@ -402,11 +404,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <style>{`@media(max-width:860px){.two-col{grid-template-columns:1fr !important;gap:48px !important}}`}</style>
+
       </section>
 
       {/* ═══════════════════ EXPERIENCE ═══════════════════ */}
-      <section id="experience" style={{ padding:'120px 48px', background:'var(--bg2)' }}>
+      <section id="experience" className='sec' style={{ padding:'120px 48px', background:'var(--bg2)' }}>
         <div className="wrap">
           <Reveal><p className="eyebrow">// timeline</p></Reveal>
           <Reveal delay={1}><h2 className="sec-title">Experience &amp;<br/>Education</h2></Reveal>
@@ -441,7 +443,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════ PROJECTS ═══════════════════ */}
-      <section id="projects" style={{ padding:'120px 48px', background:'var(--bg)' }}>
+      <section id="projects" className='sec' style={{ padding:'120px 48px', background:'var(--bg)' }}>
         <div className="wrap">
           <Reveal><p className="eyebrow">// engineering projects</p></Reveal>
           <Reveal delay={1}><h2 className="sec-title">What I've Built</h2></Reveal>
@@ -471,11 +473,11 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <style>{`@media(max-width:860px){.proj-grid{grid-template-columns:1fr !important}}`}</style>
+
       </section>
 
       {/* ═══════════════════ ACHIEVEMENTS ═══════════════════ */}
-      <section id="achievements" style={{ padding:'120px 48px', background:'var(--bg2)' }}>
+      <section id="achievements" className='sec' style={{ padding:'120px 48px', background:'var(--bg2)' }}>
         <div className="wrap">
           <Reveal><p className="eyebrow">// competition wins</p></Reveal>
           <Reveal delay={1}><h2 className="sec-title">Honours &amp;<br/>Achievements</h2></Reveal>
@@ -500,7 +502,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-        <style>{`@media(max-width:700px){.ach-grid{grid-template-columns:1fr !important}}`}</style>
+
       </section>
 
       {/* ═══════════════════ SAE FEATURE ═══════════════════ */}
@@ -529,7 +531,7 @@ export default function Home() {
           </Reveal>
 
           {/* content */}
-          <Reveal style={{ padding:'80px 60px', background:'var(--bg)', display:'flex',
+          <Reveal className="sae-content-col" style={{ padding:'80px 60px', background:'var(--bg)', display:'flex',
             flexDirection:'column', justifyContent:'center' }} delay={2}>
             <p className="eyebrow">// featured achievement</p>
             <h2 className="sec-title">SAE AeroTHON<br/>2025 — AIR 2</h2>
@@ -555,11 +557,11 @@ export default function Home() {
             </div>
           </Reveal>
         </div>
-        <style>{`@media(max-width:860px){.sae-grid{grid-template-columns:1fr !important}}`}</style>
+
       </section>
 
       {/* ═══════════════════ CONTACT ═══════════════════ */}
-      <section id="contact" style={{ padding:'120px 48px', background:'var(--bg2)' }}>
+      <section id="contact" className='sec' style={{ padding:'120px 48px', background:'var(--bg2)' }}>
         <div className="wrap">
           <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:80, alignItems:'start' }}
             className="two-col">
